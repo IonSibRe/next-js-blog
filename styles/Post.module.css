@@ -5,7 +5,7 @@
 
 .postsContainer {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: 4rem;
 }
 
@@ -27,6 +27,16 @@
 
 .postCardInner > * {
 	color: #333;
+}
+
+.postCardImgWrap {
+	height: 250px;
+	position: relative;
+	margin-bottom: 1rem;
+}
+
+.postCardImgWrap > * {
+	border-radius: 5px;
 }
 
 .postTitle {
@@ -61,7 +71,40 @@
 /* =================== Single Post =================== */
 .singlePostWrap {
 	width: var(--section-width);
-	margin: 25vh auto 0 auto;
+	margin: 2rem auto 0 auto;
+}
+
+.singlePostCardInner {
+	width: 95%;
+	margin: 0 auto;
+	padding: 1rem 0;
+}
+
+.singlePostCardHeaderWrap {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.singlePostCardImgWrap {
+	height: 500px;
+	position: relative;
+	margin-bottom: 1rem;
+}
+
+.singlePostTitle {
+	margin: 1rem 0;
+	font-size: 3.5rem;
+	text-transform: capitalize;
+	font-weight: 400;
+	color: #333;
+}
+
+.singlePostTime {
+	font-size: 2.25rem;
+	text-transform: capitalize;
+	font-weight: 400;
+	color: #333;
 }
 
 .singlePostBtn {
@@ -83,20 +126,34 @@
 	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1300px) {
 	.postsSection {
 		width: 95%;
-	}
-
-	.postCard {
-		text-align: center;
 	}
 
 	.singlePostWrap {
 		width: 95%;
 	}
+}
+
+@media screen and (max-width: 768px) {
+	.postCard {
+		text-align: center;
+	}
 
 	.singlePostCard {
 		text-align: center;
+	}
+
+	.singlePostCardHeaderWrap {
+		flex-direction: column;
+		margin-bottom: 1rem;
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.postsContainer {
+		grid-template-columns: 1fr;
 	}
 }

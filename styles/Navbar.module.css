@@ -1,0 +1,21 @@
+.nav {
+	padding: 1rem 0;
+	background-color: rgb(87, 214, 214);
+}
+
+.navInner {
+	width: 1300px;
+	margin: 0 auto;
+}
+
+.navTitle {
+	font-size: 3rem;
+	font-weight: 400;
+	color: #fff;
+}
+
+@media screen and (max-width: 1300px) {
+	.navInner {
+		width: 95%;
+	}
+}

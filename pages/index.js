@@ -1,5 +1,7 @@
 import Head from "next/head";
 import Posts from "../components/Posts";
+import fs from "fs";
+import path from "path";
 
 export default function Home({ posts }) {
 	return (
@@ -14,9 +16,15 @@ export default function Home({ posts }) {
 
 export async function getStaticProps() {
 	const res = await fetch(
-		"https://jsonplaceholder.typicode.com/posts?_limit=9"
+		"https://jsonplaceholder.typicode.com/posts?_limit=6"
 	);
-	const posts = await res.json();
+	let posts = await res.json();
+
+	const imgs = fs
+		.readdirSync(path.join("public", "img"))
+		.map((img) => `/img/${img}`);
+
+	posts = posts.map((post, index) => ({ ...post, img: imgs[index] }));
 
 	return {
 		props: {
